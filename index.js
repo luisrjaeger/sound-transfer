@@ -2,6 +2,8 @@ var express    = require('express');
 var app        = express();
 var bodyParser = require('body-parser');
 
+app.set('port', (process.env.PORT || 5000));
+
 //Parsing JSON parameters
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -17,12 +19,6 @@ console.info('usesFile', uses);
 //Setting directory for communication type
 app.use(express.static('base'));
 app.use(express.static(uses));
-
-app.all('/', function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", true);
-  res.header("Access-Control-Allow-Headers", "X-Requested-With");
-  next();
- });
 
 /** GET and POST **/
 app.get('/transmit', function (req, res) {
@@ -46,6 +42,6 @@ app.post('/console', function (req, res) {
 });
 /** GET and POST **/
 
-app.listen(8888, function () {
-  console.log('Started!');
+app.listen(app.get('port'), function() {
+  console.log('Running on port', app.get('port'));
 });
