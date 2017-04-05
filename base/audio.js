@@ -444,10 +444,12 @@ function freqToIndex(frequency) {
   return Math.round(frequency/nyquist * freqs.length);
 }
 
-window.onload = function(){
+function initAudio() {
   detectDevice();
 
   if (entity != 'transmitter') {
     requestMicrophone();
   }
-};
+}
+
+window.addEventListener('load', initAudio);
