@@ -13,7 +13,7 @@ app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 
 //Receiving input parameters for communication type (default 1)
-var uses = '' + (process.argv[2] || 1);
+var uses = '' + (process.argv[2] || 2);
 console.info('usesFile', uses);
 
 //Setting directory for communication type
