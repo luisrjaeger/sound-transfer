@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      var entity = 'transmitter';
+    </script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="huffman-0.9.0.min.js"></script>
+    <script type="text/javascript" src="base.js"></script>
+    <script type="text/javascript" src="auxiliar.js"></script>
+    <script type="text/javascript" src="audio.js"></script>
+  </head>
+  <body>
+    <div>
+      <textarea id="dataBox" rows="4" cols="50">Testing the data transmission through the sound for the conclusion project of Luis Ricardo Jaeger...</textarea>
+    </div>
+    <input type="button" id="adjust" value="Adjust" onclick="adjustSensibility();" />
+    <input type="button" id="frequencies" value="Frequencies" onclick="callAllFrequencies();" />
+    <input type="button" id="transmit" value="Send Data" onclick="sendData(false);" />
+    <input type="button" id="transmit-one" value="Send One" onclick="sendData(true);" />
+    <input type="button" id="reset" value="Reset" onclick="stepByStepCounter = -1;" />
+  </body>
+</html>

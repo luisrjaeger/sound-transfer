@@ -1,0 +1,17 @@
+{
+  "name": "sound-transfer",
+  "version": "0.0.1",
+  "description": "Implementation of sound data transfer",
+  "author": "Luis Jaeger <luisrjaeger@gmail.com>",
+  "keywords": [
+    "sound",
+    "data",
+    "transfer"
+  ],
+  "private": true,
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "ejs": "^2.5.6",
+    "express": "^4.15.2"
+  }
+}
