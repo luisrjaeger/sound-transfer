@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      var entity = 'receiver';
+    </script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="huffman-0.9.0.min.js"></script>
+    <script type="text/javascript" src="base.js"></script>
+    <script type="text/javascript" src="auxiliar.js"></script>
+    <script type="text/javascript" src="audio.js"></script>
+  </head>
+  <body>
+    <div id="container">
+      <div id="dataBox"></div>
+      <input type="button" id="adjust" value="Adjust" onclick="adjustSensibility();" />
+      <input type="button" id="frequencies" value="Frequencies" onclick="callAllFrequencies();" />
+      <input type="button" id="receive" value="Receive Data" onclick="receiveData();" />
+      <input type="button" id="toggleAnalyses" value="Start Analyses" onclick="toggleAnalyseFrequency();" />
+      <input type="text" id="txFrequency" />
+      <input type="button" id="sendFreq" value="Send Freq" onclick="generateSpecificFrequency();" />
+    </div>
+  </body>
+</html>
