@@ -1,47 +1,20 @@
-var express    = require('express');
-var app        = express();
-var bodyParser = require('body-parser');
+var express = require('express');
+var app = express();
 
 app.set('port', (process.env.PORT || 5000));
 
-//Parsing JSON parameters
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(__dirname + '/public'));
 
-//Rendering html for mobile
+// views is directory for all template files
+app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
-app.engine('html', require('ejs').renderFile);
 
-//Receiving input parameters for communication type (default 1)
-var uses = '' + (process.argv[2] || 1);
-console.info('usesFile', uses);
-
-//Setting directory for communication type
-app.use(express.static('base'));
-app.use(express.static(uses));
-
-/** GET and POST **/
-app.get('/transmit', function (req, res) {
-  res.render('transmit.html');
+app.get('/', function(request, response) {
+  response.render('pages/index');
 });
-
-app.get('/receive', function (req, res) {
-  res.render('receive.html');
-});
-
-//Receives console output from client
-app.post('/console', function (req, res) {
-  var body = req.body;
-
-  for (var prop in body) {
-    console.info(prop + ' -', body[prop]);
-  }
-  console.info('**************************************');
-
-  res.end();
-});
-/** GET and POST **/
 
 app.listen(app.get('port'), function() {
-  console.log('Running on port', app.get('port'));
+  console.log('Node app is running on port', app.get('port'));
 });
+
+
