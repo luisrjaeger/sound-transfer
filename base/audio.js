@@ -75,8 +75,15 @@ function getContext() {
 
 function requestMicrophone() {
   var constraints = {
-    audio: { optional: [{ echoCancellation: true }] },
-    video: false
+    "audio": {
+      "mandatory": {
+        "googEchoCancellation": "false",
+        "googAutoGainControl": "false",
+        "googNoiseSuppression": "false",
+        "googHighpassFilter": "false"
+      },
+      "optional": []
+    }
   };
 
   navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
